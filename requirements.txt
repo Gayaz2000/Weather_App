@@ -3,4 +3,5 @@ langgraph
 streamlit
 fastapi
 python-dotenv
+langchain_groq
 #ipykernel

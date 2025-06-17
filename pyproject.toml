@@ -8,6 +8,7 @@ dependencies = [
     "fastapi[standard]>=0.115.12",
     "ipykernel>=6.29.5",
     "langchain-core>=0.3.65",
+    "langchain-groq>=0.3.2",
     "langgraph>=0.4.8",
     "python-dotenv>=1.1.0",
     "streamlit>=1.45.1",
