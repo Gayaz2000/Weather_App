@@ -1,0 +1,6 @@
+langchain_core
+langgraph
+streamlit
+fastapi
+python-dotenv
+#ipykernel
