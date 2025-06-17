@@ -10,7 +10,7 @@ if st.button("Get Weather"):
     if city and WEATHER_API_KEY:
         with st.spinner("Waiting for LLM response..."):
             response = requests.post(
-                "http://127.0.0.1:8000/llm/infer",
+                "http://127.0.0.1:8000/chat",
                 json={"city": city, "WEATHER_API_KEY":WEATHER_API_KEY}
             )
             if response.status_code == 200:

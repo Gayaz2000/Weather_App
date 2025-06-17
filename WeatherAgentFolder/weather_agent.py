@@ -1,9 +1,14 @@
 import requests
 import os
-from langgraph.prebuilt import creat_react_agent
+from langgraph.prebuilt import create_react_agent
 from langchain_groq import ChatGroq
+from dotenv import load_dotenv
+load_dotenv()
+
+os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 
 def get_weather_from_weatherapi(city: str, WEATHER_API_KEY: str) -> str:
+    """A weather information provider"""
     try:
         url = f"http://api.weatherapi.com/v1/forecast.json?key={WEATHER_API_KEY}&q={city}&days=3&aqi=no&alerts=no"
         response = requests.get(url)
@@ -44,7 +49,7 @@ def get_weather_from_weatherapi(city: str, WEATHER_API_KEY: str) -> str:
         return f"❗ Error: {str(e)}"
     
 
-llm = ChatGroq(model="qwen-qwq-32b")
+llm = ChatGroq(model="deepseek-r1-distill-llama-70b")
 
 weather_agent = create_react_agent(
         model= llm.bind_tools([get_weather_from_weatherapi]),

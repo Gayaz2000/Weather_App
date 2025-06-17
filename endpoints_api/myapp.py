@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 import httpx 
-from MyAgentFolder.newagent import weather_agent
+from WeatherAgentFolder.weather_agent import weather_agent
 
 app = FastAPI()
 
@@ -12,9 +12,9 @@ class LLMRequest(BaseModel):
 
 # Simulated response function — replace with your model call
 async def run_weather_agent(city: str, WEATHER_API_KEY:str) -> str:
-    output = weather_agent({"city":city, "WEATHER_API_KEY":WEATHER_API_KEY})
+    output = weather_agent.invoke({"messages":[city, WEATHER_API_KEY]})
     return output["messages"][-1].content
-
+    
 # FastAPI POST endpoint
 @app.post("/chat")
 async def infer(request: LLMRequest):
