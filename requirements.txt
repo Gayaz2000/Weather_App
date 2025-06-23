@@ -2,6 +2,7 @@ langchain_core
 langgraph
 streamlit
 fastapi
+uvicorn
 python-dotenv
 langchain_groq
 #ipykernel
